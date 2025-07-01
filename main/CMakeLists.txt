@@ -5,9 +5,11 @@ idf_component_register(
         "enix/filesystem/filesystem.c"
         "enix/shell/shell.c"
     INCLUDE_DIRS 
+        "."
         "enix"
         "enix/filesystem"
         "enix/shell"
     REQUIRES 
         spiffs
+        freertos
 )
