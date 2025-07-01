@@ -1,12 +1,9 @@
 #ifndef ENIX_H
 #define ENIX_H
 
-typedef struct 
-{
-    /* data */
-}
-enix_state_t;
-
+/*
+    @brief Entry point for the Environment
+*/
 void enix_entry();
 
 #endif

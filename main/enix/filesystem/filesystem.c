@@ -11,7 +11,7 @@ bool fs_initialize(size_t* rootfs_size, size_t* mountfs_size)
 
     esp_vfs_spiffs_conf_t conf = 
     {
-      .base_path = "/spiffs",
+      .base_path = "/rootfs",
       .partition_label = "rootfs",  // Match the partition name in partitions.csv
       .max_files = 5,
       .format_if_mount_failed = true

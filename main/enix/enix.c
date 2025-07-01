@@ -11,8 +11,6 @@
 #include "filesystem/filesystem.h"
 #include "shell/shell.h"
 
-#define INPUT_BUFFER_SIZE 256
-
 void enix_loop()
 {
     static char input[INPUT_BUFFER_SIZE];
@@ -21,14 +19,17 @@ void enix_loop()
     // Read one character at a time
     int c = getchar();
     
-    if (c != EOF) {
-        if (c == '\r' || c == '\n') {
+    if (c != EOF) 
+    {
+        if (c == '\r' || c == '\n') 
+        {
             // End of line - process command
             printf("\n");
             input[input_pos] = '\0';
             
-            if (input_pos > 0) {
-                shell_exec(input);
+            if (input_pos > 0) 
+            {
+                sh_execute(input);
             }
             
             // Reset for next command
@@ -36,17 +37,21 @@ void enix_loop()
             printf("ENIX > ");
             fflush(stdout);
         }
-        else if (c == '\b' || c == 127) {
+        else if (c == '\b' || c == 127) 
+        {
             // Backspace handling
-            if (input_pos > 0) {
+            if (input_pos > 0) 
+            {
                 input_pos--;
                 printf("\b \b");  // Move back, print space, move back again
                 fflush(stdout);
             }
         }
-        else if (c >= 32 && c < 127) {
+        else if (c >= 32 && c < 127) 
+        {
             // Printable character
-            if (input_pos < INPUT_BUFFER_SIZE - 1) {
+            if (input_pos < INPUT_BUFFER_SIZE - 1) 
+            {
                 input[input_pos++] = c;
                 putchar(c);  // Echo the character
                 fflush(stdout);
@@ -68,8 +73,14 @@ void enix_entry()
         return;
     }
 
+    if(!sh_initialize())
+    {
+        return;
+    }
+
+
     char version_string[64] = { 0 };
-    FILE* f = fopen("/spiffs/version.txt", "r");
+    FILE* f = fopen("/rootfs/version.txt", "r");
     if (f) 
     {
         fgets(version_string, sizeof(version_string), f);

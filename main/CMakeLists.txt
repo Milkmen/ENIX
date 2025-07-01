@@ -4,11 +4,13 @@ idf_component_register(
         "enix/enix.c"
         "enix/filesystem/filesystem.c"
         "enix/shell/shell.c"
+        "enix/binloader/binloader.c"
     INCLUDE_DIRS 
         "."
         "enix"
         "enix/filesystem"
         "enix/shell"
+        "enix/binloader"
     REQUIRES 
         spiffs
         freertos
