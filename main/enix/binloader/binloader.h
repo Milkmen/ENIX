@@ -13,8 +13,7 @@ typedef struct
     uint32_t a_entry;
     uint32_t a_trsize;
     uint32_t a_drsize;
-} 
-bin_aout_header_t;
+} bin_aout_header_t;
 
 /*
  @brief Launches a Binary Process
