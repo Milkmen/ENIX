@@ -1,0 +1,13 @@
+idf_component_register(
+    SRCS
+    	"main.c"
+        "enix/enix.c"
+        "enix/filesystem/filesystem.c"
+        "enix/shell/shell.c"
+    INCLUDE_DIRS 
+        "enix"
+        "enix/filesystem"
+        "enix/shell"
+    REQUIRES 
+        spiffs
+)
