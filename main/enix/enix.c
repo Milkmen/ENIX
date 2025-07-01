@@ -90,7 +90,7 @@ void enix_entry()
     
     printf("Filesystem initialized: %zu bytes total, %zu bytes used\n", rootfs_size, mountfs_size);
     printf("Type 'help' for available commands\n");
-    printf("enix> ");
+    printf("ENIX > ");
     fflush(stdout);
         
     while(1)
