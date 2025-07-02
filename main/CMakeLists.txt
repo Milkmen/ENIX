@@ -5,6 +5,7 @@ idf_component_register(
         "enix/filesystem/filesystem.c"
         "enix/shell/shell.c"
         "enix/binloader/binloader.c"
+        "enix/binloader/syscalls.c"
     INCLUDE_DIRS 
         "."
         "enix"
